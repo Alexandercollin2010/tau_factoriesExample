@@ -26,13 +26,15 @@ myApp.controller( 'BikeController', [ '$scope', 'garageFactory', function( $scop
   console.log( 'bike controller' );
   $scope.addBike = function(){
     console.log( 'in addBike' );
+    // object from user input
     var newBike = {
       year: $scope.yearIn,
       make: $scope.makeIn,
       model: $scope.modelIn,
       picUrl: $scope.picUrlIn
     }; //end newBike
-    garageFactory.bikes.push( newBike );
+    // add the new object into the factory
+    garageFactory.addBike( newBike );
     console.log( 'garageFactory.bikes:', garageFactory.bikes );
   }; // end addBike
 }]); // end BikeController
@@ -40,19 +42,22 @@ myApp.controller( 'BikeController', [ '$scope', 'garageFactory', function( $scop
 myApp.controller( 'CarController', [ '$scope', 'garageFactory', function( $scope, garageFactory ){
   console.log( 'car controller' );
   $scope.addCar = function(){
+    // create an object from the user input
     var newCar = {
       year: $scope.yearIn,
       make: $scope.makeIn,
       model: $scope.modelIn,
       picUrl: $scope.picUrlIn
     }; //end newCar
-    garageFactory.cars.push( newCar );
+    // add the new object into the factory
+    garageFactory.addCar( newCar );
     console.log( 'garageFactory.cars:', garageFactory.cars );
   }; // end addCar
 }]); // end CarController
 
 myApp.controller( 'GarageController', [ '$scope', 'garageFactory', function( $scope, garageFactory ){
   console.log( 'garage controller' );
+  // bind the factory vars to the DOM through this controller's $scope
   $scope.bikes = garageFactory.bikes;
   $scope.cars = garageFactory.cars;
 }]); // end garageController
