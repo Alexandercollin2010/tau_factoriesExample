@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/garageFactory.js" charset="utf-8"></script>
+    <title>Tau Factories Garage (take 2)</title>
+  </head>
+  <body ng-app='myApp'>
+    <h1>Tau Factories Garage (take 2)</h1>
+    <div ng-controller='GarageController'>
+      <h2>The Garage:</h2>
+      <h3>Cars:</h3>
+      <ul>
+        <li ng-repeat='car in cars'>
+          {{ car }}
+        </li>
+      </ul>
+      <h3>Bikes:</h3>
+      <ul>
+        <li ng-repeat='bike in bikes'>
+          {{ bike }}
+        </li>
+      </ul>
+    </div>
+    <div ng-controller='CarController'>
+      <h2>Add Car</h2>
+      <input type="number" ng-model='yearIn' placeholder="year">
+      <input type="text" ng-model='makeIn' placeholder="make">
+      <input type="text" ng-model='modelIn' placeholder="model">
+      <input type="text" ng-model='picUrlIn' placeholder="pic url">
+      <button ng-click='addCar()'>Add Car</button>
+    </div>
+    <div ng-controller='BikeController'>
+      <h2>Add Bike</h2>
+      <input type="number" ng-model='yearIn' placeholder="year">
+      <input type="text" ng-model='makeIn' placeholder="make">
+      <input type="text" ng-model='modelIn' placeholder="model">
+      <input type="text" ng-model='picUrlIn' placeholder="pic url">
+      <button ng-click='addBike()'>Add Bike</button>
+    </div>
+  </body>
+</html>
